@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PurpleChar : PlayableCharacter
+public class PurpleChar : BaseCharacter
 {
     public override void Die()
     {
@@ -19,8 +19,9 @@ public class PurpleChar : PlayableCharacter
         throw new System.NotImplementedException();
     }
 
-    void ApplyDamage(IDamagable damagable)
+    public override void ApplyDamage(IDamagable damagable)
     {
-
+        damagable.TakeDamage(3);
     }
+
 }

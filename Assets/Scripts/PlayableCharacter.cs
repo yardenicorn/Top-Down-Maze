@@ -1,41 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
-public abstract class PlayableCharacter : MonoBehaviour, IDamagable
+public class PlayableCharacter : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public float speed;
-    public int maxHP;
-    public int currentHP;
+    public BaseCharacter[] playableCharacters;
+    public BaseCharacter currentCharacter;
 
-    public abstract void Die();
-    public abstract void SpecialAbility();
-    public abstract void TakeDamage(int howMuch);
-
-    public void Movement()
+    private void Start()
     {
-        // Get input from horizontal and vertical axis
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        // Calculate the movement direction
-        Vector3 movement = new Vector3(horizontal, vertical, 0f);
-
-        // Normalize the movement direction to prevent diagonal movement from being faster
-        movement = movement.normalized * speed * Time.deltaTime;
-
-        // Move the player
-        transform.position += movement;
-    }
-
-    void ApplyDamage(IDamagable damagable)
-    {
-
+        currentCharacter = playableCharacters[Random.Range(0, playableCharacters.Length)];
+        currentCharacter.gameObject.SetActive(true);
     }
 
     void Update()
     {
-        Movement();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Switch();
+        }
+    }
+
+    public void Switch()
+    {
+        currentCharacter.gameObject.SetActive(false);
+        var myCharacter = playableCharacters[Random.Range(0, playableCharacters.Length)];
+        while (myCharacter == currentCharacter)
+        {
+            myCharacter = playableCharacters[Random.Range(0, playableCharacters.Length)];
+        }
+        myCharacter.gameObject.SetActive(true);
+        currentCharacter = myCharacter;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 7)
+        {
+            currentCharacter.ApplyDamage(collision.gameObject.GetComponent<IDamagable>());
+        }
     }
 }
