@@ -2,17 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public abstract class PlayableCharacter : MonoBehaviour, IDamagable
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed;
+    public int maxHP;
+    public int currentHP;
+
+    public abstract void Die();
+    public abstract void SpecialAbility();
+    public abstract void TakeDamage(int howMuch);
+
+    public void Movement()
     {
-        
+        // Get input from horizontal and vertical axis
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        // Calculate the movement direction
+        Vector3 movement = new Vector3(horizontal, vertical, 0f);
+
+        // Normalize the movement direction to prevent diagonal movement from being faster
+        movement = movement.normalized * speed * Time.deltaTime;
+
+        // Move the player
+        transform.position += movement;
     }
 
-    // Update is called once per frame
+    void ApplyDamage(IDamagable damagable)
+    {
+
+    }
+
     void Update()
     {
-        
+        Movement();
     }
 }

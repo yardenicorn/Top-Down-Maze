@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap : MonoBehaviour
+public abstract class Trap : MonoBehaviour, IDamagable
 {
-    // Start is called before the first frame update
-    void Start()
+    public LayerMask whatIDamage;
+    public void Die()
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int howMuch)
     {
-        
+        throw new System.NotImplementedException();
     }
+
+    void ApplyDamage(IDamagable damagable);
 }
