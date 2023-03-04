@@ -6,6 +6,7 @@ using UnityEngine.TextCore.Text;
 public class ChooseRandomPlayer : MonoBehaviour
 {
     public PlayableCharacter[] playableCharacters;
+    public GameObject currentCharacter;
     public List<GameObject> characterList;
     public int playerIndex = 0;
     public Transform PlayerStartPoint;
@@ -58,5 +59,8 @@ public class ChooseRandomPlayer : MonoBehaviour
     public void Switch()
     {
         var myCharacter = playableCharacters[Random.Range(0, playableCharacters.Length)];
+        myCharacter.gameObject.SetActive(true);
+        currentCharacter.SetActive(false);
+        currentCharacter = myCharacter.gameObject;
     }
 }
