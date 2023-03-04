@@ -2,16 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseTrap : MonoBehaviour, IDamagable
+public abstract class BaseTrap : MonoBehaviour
 {
     public LayerMask whatIDamage;
-    public void Die()
+    void ApplyDamage(IDamagable damagable)
     {
-        throw new System.NotImplementedException();
-    }
 
-    public void TakeDamage(int howMuch)
-    {
-        throw new System.NotImplementedException();
     }
 }
