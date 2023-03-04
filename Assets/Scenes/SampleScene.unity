@@ -3185,6 +3185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1031406435}
   - component: {fileID: 1031406434}
+  - component: {fileID: 1031406436}
   m_Layer: 7
   m_Name: Trap2
   m_TagString: Untagged
@@ -3234,7 +3235,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99053574, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3259,6 +3260,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1031406436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031406433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae343d2ecd938d64a8ecf858393fc81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIDamage:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1137006138
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,6 +3494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1619472234}
   - component: {fileID: 1619472233}
+  - component: {fileID: 1619472235}
   m_Layer: 7
   m_Name: Trap1
   m_TagString: Untagged
@@ -3527,7 +3544,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3544,7 +3561,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619472232}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.51, y: 11.33, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3552,6 +3569,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619472235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619472232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141059870696526408a9969356bbc7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIDamage:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1640591133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3694,7 +3726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1827312765}
   m_Layer: 0
-  m_Name: SpawnPoint (9)
+  m_Name: SpawnPoint10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4860,6 +4892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2022560869}
   - component: {fileID: 2022560868}
+  - component: {fileID: 2022560870}
   m_Layer: 7
   m_Name: Trap3
   m_TagString: Untagged
@@ -4909,7 +4942,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.07366824, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4934,6 +4967,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2022560870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022560867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded812277beee3e45a92397dbd679a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIDamage:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2144277499
 GameObject:
   m_ObjectHideFlags: 0
@@ -4943,6 +4991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144277500}
+  - component: {fileID: 2144277501}
   m_Layer: 0
   m_Name: TrapSpawnPoints
   m_TagString: Untagged
@@ -4975,3 +5024,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2144277501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144277499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11c0185c254cdf4f970c218c2ff96fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Traps:
+  - {fileID: 1619472235}
+  - {fileID: 1031406436}
+  - {fileID: 2022560870}
+  TrapPoint: {fileID: 0}

@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class BlueChar : BaseCharacter
 {
-    BlueChar character = new();
-    public override void Die()
-    {
-        Destroy(character);
-    }
-
     public override void SpecialAbility()
     {
 

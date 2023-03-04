@@ -11,7 +11,6 @@ public abstract class BaseCharacter : MonoBehaviour, IDamagable
     public int maxHP;
     public int currentHP;
 
-    public abstract void Die();
     public abstract void SpecialAbility();
     public abstract void TakeDamage(int howMuch);
     public abstract void ApplyDamage(IDamagable damagable);
@@ -19,6 +18,15 @@ public abstract class BaseCharacter : MonoBehaviour, IDamagable
     public void Update()
     {
         Movement();
+        if (currentHP == 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(this);
     }
 
     public void Movement()

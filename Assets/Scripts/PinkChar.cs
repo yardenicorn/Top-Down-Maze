@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class PinkChar : BaseCharacter
 {
-    PinkChar character = new();
-    public override void Die()
-    {
-        Destroy(character);
-    }
-
     public override void SpecialAbility()
     {
 
