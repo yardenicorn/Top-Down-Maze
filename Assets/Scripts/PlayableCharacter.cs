@@ -7,6 +7,7 @@ public class PlayableCharacter : MonoBehaviour
 {
     public BaseCharacter[] playableCharacters;
     public BaseCharacter currentCharacter;
+    public BaseCharacter previousCharacter;
 
     private void Start()
     {
@@ -26,12 +27,14 @@ public class PlayableCharacter : MonoBehaviour
     {
         currentCharacter.gameObject.SetActive(false);
         var myCharacter = playableCharacters[Random.Range(0, playableCharacters.Length)];
-        while (myCharacter == currentCharacter)
+        while (myCharacter == currentCharacter || myCharacter == previousCharacter)
         {
             myCharacter = playableCharacters[Random.Range(0, playableCharacters.Length)];
         }
         myCharacter.gameObject.SetActive(true);
+        previousCharacter = currentCharacter;
         currentCharacter = myCharacter;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
