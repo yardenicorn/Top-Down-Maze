@@ -9,4 +9,6 @@ public abstract class BaseTrap : MonoBehaviour
     {
 
     }
+
+    public abstract void StepOnTrap();
 }

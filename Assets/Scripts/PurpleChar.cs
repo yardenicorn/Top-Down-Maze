@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PurpleChar : BaseCharacter
 {
+    PurpleChar character = new();
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        Destroy(character);
     }
 
     public override void SpecialAbility()

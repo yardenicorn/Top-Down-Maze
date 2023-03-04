@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class TrapSpawnPoint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public BaseTrap[] Traps;
+    public BaseTrap TrapPoint;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        TrapPoint = Traps[Random.Range(0, Traps.Length)];
+        TrapPoint.gameObject.SetActive(true);
     }
 }

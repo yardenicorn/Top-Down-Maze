@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PinkChar : BaseCharacter
 {
-
+    PinkChar character = new();
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        Destroy(character);
     }
 
     public override void SpecialAbility()

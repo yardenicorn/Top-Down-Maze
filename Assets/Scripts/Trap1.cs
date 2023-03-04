@@ -5,5 +5,8 @@ using UnityEngine.TextCore.Text;
 
 public class Trap1 : BaseTrap
 {
-    Base
+    public override void StepOnTrap()
+    {
+        throw new System.NotImplementedException();
+    }
 }
