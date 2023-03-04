@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Trap : MonoBehaviour, IDamagable
+public abstract class BaseTrap : MonoBehaviour, IDamagable
 {
     public LayerMask whatIDamage;
     public void Die()
@@ -14,6 +14,4 @@ public abstract class Trap : MonoBehaviour, IDamagable
     {
         throw new System.NotImplementedException();
     }
-
-    void ApplyDamage(IDamagable damagable);
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class PlayableCharacter : MonoBehaviour, IDamagable
 {
+    public Rigidbody2D rb;
     public float speed;
     public int maxHP;
     public int currentHP;
