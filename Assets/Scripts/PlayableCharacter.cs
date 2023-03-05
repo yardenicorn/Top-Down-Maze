@@ -1,47 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class PlayableCharacter : MonoBehaviour
+public abstract class PlayableCharacter : MonoBehaviour, IDamagable
 {
-    public BaseCharacter[] playableCharacters;
-    public BaseCharacter currentCharacter;
-    public BaseCharacter previousCharacter;
+    public Rigidbody2D rigidBody;
+    public BoxCollider2D boxCollider;
+    float horizontal;
+    float vertical;
+    public float speed;
+    public int currentHP;
+    public int maxHP = 10;
 
-    private void Start()
+    public void Start()
     {
-        currentCharacter = playableCharacters[Random.Range(0, playableCharacters.Length)];
-        currentCharacter.gameObject.SetActive(true);
+        currentHP = maxHP;
     }
 
-    void Update()
+    public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        Movement();
+    }
+
+    public void Movement()
+    {
+        // Get input from horizontal and vertical axis
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+
+        // Calculate the movement direction
+        rigidBody.velocity = new Vector2(horizontal * speed, vertical * speed);
+    }
+
+    public void TakeDamage(int howMuch)
+    {
+        currentHP -= howMuch;
+        if (currentHP <= 0)
         {
-            Switch();
+            Die();
         }
     }
 
-    public void Switch()
+    public void Die()
     {
-        currentCharacter.gameObject.SetActive(false);
-        var myCharacter = playableCharacters[Random.Range(0, playableCharacters.Length)];
-        while (myCharacter == currentCharacter || myCharacter == previousCharacter)
-        {
-            myCharacter = playableCharacters[Random.Range(0, playableCharacters.Length)];
-        }
-        myCharacter.gameObject.SetActive(true);
-        previousCharacter = currentCharacter;
-        currentCharacter = myCharacter;
-
+        Destroy(this);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.layer == 7)
-        {
-            currentCharacter.ApplyDamage(collision.gameObject.GetComponent<IDamagable>());
-        }
-    }
+    // public virtual void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     if (collision.gameObject.tag == "Trap")
+    //     {
+    //         Debug.Log("Collided");
+    //         //CollidedWithTrap(collision.gameObject);
+    //     }
+    // }
+
+    // public abstract void CollidedWithTrap(GameObject trap);
+    
+    public abstract void SpecialAbility();
+    public abstract void ApplyDamage(IDamagable damagable);
+
 }

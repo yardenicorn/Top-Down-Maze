@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class Trap2 : BaseTrap
+public class Trap2 : Traps
 {
     public override void StepOnTrap()
     {
