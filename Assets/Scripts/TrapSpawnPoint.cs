@@ -1,15 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrapSpawnPoint : MonoBehaviour
 {
-    public BaseTrap[] Traps;
-    public BaseTrap TrapPoint;
+    public BaseTrap[] OptionalTraps;
+    private BaseTrap Trap;
+    public Transform[] SpawnPointsArray;
 
-    private void Start()
+
+    void Start()
     {
-        TrapPoint = Traps[Random.Range(0, Traps.Length)];
-        TrapPoint.gameObject.SetActive(true);
+        foreach (Transform spawnPoint in SpawnPointsArray)
+        {
+            Trap = OptionalTraps[UnityEngine.Random.Range(0, OptionalTraps.Length)];
+            BaseTrap clonedTrap = Instantiate(Trap, spawnPoint.position, spawnPoint.rotation); //Instantiate returns the new object
+            clonedTrap.gameObject.SetActive(true);
+
+        }
+        
     }
+
 }
