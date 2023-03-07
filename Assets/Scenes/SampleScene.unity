@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294663405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.27, y: 7.23, z: 0}
+  m_LocalPosition: {x: -7.25, y: 7.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3173,7 +3173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371248760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77, y: -6.71, z: 0}
+  m_LocalPosition: {x: 0.77, y: -4.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3872,9 +3872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae343d2ecd938d64a8ecf858393fc81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIDamage:
-    serializedVersion: 2
-    m_Bits: 0
+  isDestroyable: 1
+  trapType: 1
 --- !u!1 &1137006138
 GameObject:
   m_ObjectHideFlags: 0
@@ -4073,7 +4072,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392906540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3, y: 3.21, z: 0}
+  m_LocalPosition: {x: -0.25, y: 5.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4339,9 +4338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141059870696526408a9969356bbc7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIDamage:
-    serializedVersion: 2
-    m_Bits: 0
+  isDestroyable: 1
+  trapType: 0
 --- !u!1 &1640591133
 GameObject:
   m_ObjectHideFlags: 0
@@ -4463,7 +4461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755689705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.72, y: 0.24, z: 0}
+  m_LocalPosition: {x: 7.77, y: 1.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5784,9 +5782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded812277beee3e45a92397dbd679a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIDamage:
-    serializedVersion: 2
-    m_Bits: 0
+  isDestroyable: 1
+  trapType: 2
 --- !u!1 &2144277499
 GameObject:
   m_ObjectHideFlags: 0

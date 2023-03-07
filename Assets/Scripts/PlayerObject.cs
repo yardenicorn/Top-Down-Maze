@@ -19,6 +19,7 @@ public class PlayerObject : MonoBehaviour
 
     [SerializeField] Transform FirePoint;
 
+
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -35,12 +36,18 @@ public class PlayerObject : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        Vector2 movement = new Vector2(horizontal, vertical).normalized;
-        rigidBody.velocity = movement * speed;
+        rigidBody.velocity = new Vector2(horizontal, vertical).normalized * speed;
 
-        if (movement.magnitude > 0)
+        if (horizontal != 0)
         {
-            lastMovementDirection = movement.normalized;
+            lastMovementDirection = new Vector2(horizontal, 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            GameObject projectile = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+            projectileRb.velocity = lastMovementDirection * bulletSpeed;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -48,13 +55,6 @@ public class PlayerObject : MonoBehaviour
             Switch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Debug.Log("Shooting in direction: " + lastMovementDirection);
-            GameObject projectile = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-            projectileRb.velocity = lastMovementDirection * bulletSpeed;
-        }
     }
 
     public void Switch()
@@ -86,6 +86,7 @@ public class PlayerObject : MonoBehaviour
                 currentCharacter = playableCharacters[Random.Range(0, playableCharacters.Count)];
                 currentCharacter.gameObject.SetActive(true);
             }
+
         }
 
         if (collision.gameObject == MazeEnd)

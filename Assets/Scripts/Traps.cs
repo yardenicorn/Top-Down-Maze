@@ -1,17 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Traps : MonoBehaviour
 {
-    public LayerMask whatIDamage;
-    public abstract void StepOnTrap();
+    public enum TrapType
+    {
+        Trap1,
+        Trap2,
+        Trap3
+    }
+
+    public TrapType trapType;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+                Destroy(gameObject);
         }
     }
 }
