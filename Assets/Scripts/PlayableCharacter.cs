@@ -4,42 +4,59 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public abstract class PlayableCharacter : MonoBehaviour, IDamagable
+public abstract class PlayableCharacter : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
     public BoxCollider2D boxCollider;
     float horizontal;
     float vertical;
     public float speed;
-    public int currentHP;
-    public int maxHP = 10;
+    public GameObject bullet;
+    public float bulletSpeed = 10f;
+    private Vector2 shootingDirection;
+
+    [SerializeField] Transform FirePoint;
 
     public void Start()
     {
-        currentHP = maxHP;
+
     }
 
     public void Update()
     {
-        Movement();
-    }
-
-    public void Movement()
-    {
-        // Get input from horizontal and vertical axis
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        // Calculate the movement direction
-        rigidBody.velocity = new Vector2(horizontal * speed, vertical * speed);
-    }
+        Vector2 movement = new Vector2(horizontal, vertical).normalized;
+        rigidBody.velocity = movement * speed;
 
-    public void TakeDamage(int howMuch)
-    {
-        currentHP -= howMuch;
-        if (currentHP <= 0)
+        if (horizontal != 0 || vertical != 0)
         {
-            Die();
+            // Set the shooting direction based on the player's facing direction
+            Vector3 facingDirection = transform.localScale;
+            if (facingDirection.x > 0) // Facing right
+            {
+                shootingDirection = Vector2.right;
+            }
+            else if (facingDirection.x < 0) // Facing left
+            {
+                shootingDirection = Vector2.left;
+            }
+            else if (facingDirection.y > 0) // Facing up
+            {
+                shootingDirection = Vector2.up;
+            }
+            else if (facingDirection.y < 0) // Facing down
+            {
+                shootingDirection = Vector2.down;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            GameObject projectile = Instantiate(bullet, transform.position, Quaternion.identity);
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            rb.velocity = shootingDirection * bulletSpeed;
         }
     }
 
@@ -47,19 +64,4 @@ public abstract class PlayableCharacter : MonoBehaviour, IDamagable
     {
         Destroy(this);
     }
-
-    // public virtual void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if (collision.gameObject.tag == "Trap")
-    //     {
-    //         Debug.Log("Collided");
-    //         //CollidedWithTrap(collision.gameObject);
-    //     }
-    // }
-
-    // public abstract void CollidedWithTrap(GameObject trap);
-    
-    public abstract void SpecialAbility();
-    public abstract void ApplyDamage(IDamagable damagable);
-
 }

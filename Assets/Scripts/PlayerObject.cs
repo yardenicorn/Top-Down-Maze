@@ -11,6 +11,7 @@ public class PlayerObject : MonoBehaviour
     public PlayableCharacter previousCharacter;
     public GameObject gameoverTextObject;
     public GameObject winTextObject;
+    public GameObject MazeEnd;
 
 
     private void Start()
@@ -61,13 +62,10 @@ public class PlayerObject : MonoBehaviour
                 currentCharacter.gameObject.SetActive(true);
             }
         }
-    }
 
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if(collision.gameObject.layer == 7)
-    //     {
-    //         currentCharacter.ApplyDamage(collision.gameObject.GetComponent<IDamagable>());
-    //     }
-    // }
+        if (collision.gameObject == MazeEnd)
+        {
+            winTextObject.SetActive(true);
+        }
+    }
 }
