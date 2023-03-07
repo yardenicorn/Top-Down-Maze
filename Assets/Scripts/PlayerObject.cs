@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using TMPro;
 
 public class PlayerObject : MonoBehaviour
 {
@@ -42,7 +39,6 @@ public class PlayerObject : MonoBehaviour
         myCharacter.gameObject.SetActive(true);
         previousCharacter = currentCharacter;
         currentCharacter = myCharacter;
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

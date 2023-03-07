@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public abstract class PlayableCharacter : MonoBehaviour
 {
@@ -11,7 +8,7 @@ public abstract class PlayableCharacter : MonoBehaviour
     float horizontal;
     float vertical;
     public float speed;
-    public GameObject bullet;
+    public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
     private Vector2 shootingDirection;
 
@@ -19,7 +16,7 @@ public abstract class PlayableCharacter : MonoBehaviour
 
     public void Start()
     {
-
+        
     }
 
     public void Update()
@@ -54,7 +51,7 @@ public abstract class PlayableCharacter : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            GameObject projectile = Instantiate(bullet, FirePoint.position, Quaternion.identity);
+            GameObject projectile = Instantiate(bulletPrefab, FirePoint.position, Quaternion.identity);
 
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = shootingDirection * bulletSpeed;
