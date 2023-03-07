@@ -55,6 +55,7 @@ public abstract class PlayableCharacter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             GameObject projectile = Instantiate(bullet, FirePoint.position, Quaternion.identity);
+
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = shootingDirection * bulletSpeed;
         }
