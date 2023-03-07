@@ -251,12 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d28b044cb40e0449d360893171a54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody: {fileID: 571977795}
-  boxCollider: {fileID: 571977796}
-  speed: 5
-  bulletPrefab: {fileID: 3830360675380952988, guid: 32694b21bcf88d4448fd38fe0229466d, type: 3}
-  bulletSpeed: 10
-  FirePoint: {fileID: 349204245}
 --- !u!1 &294663405
 GameObject:
   m_ObjectHideFlags: 0
@@ -3351,8 +3345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c184652ec651649b901c38f097cb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playableCharacters: []
-  currentCharacter: {fileID: 0}
+  PlayerObject: {fileID: 0}
 --- !u!1 &571977792
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,6 +3405,10 @@ MonoBehaviour:
   gameoverTextObject: {fileID: 297215086}
   winTextObject: {fileID: 994894188}
   MazeEnd: {fileID: 1528400592}
+  bulletPrefab: {fileID: 3830360675380952988, guid: 32694b21bcf88d4448fd38fe0229466d, type: 3}
+  bulletSpeed: 10
+  speed: 5
+  FirePoint: {fileID: 349204245}
 --- !u!50 &571977795
 Rigidbody2D:
   serializedVersion: 4
@@ -4052,12 +4049,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca08e961e03ea440acb6934af824a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody: {fileID: 571977795}
-  boxCollider: {fileID: 571977796}
-  speed: 5
-  bulletPrefab: {fileID: 3830360675380952988, guid: 32694b21bcf88d4448fd38fe0229466d, type: 3}
-  bulletSpeed: 10
-  FirePoint: {fileID: 349204245}
 --- !u!1 &1392906540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,12 +4439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75086747b7563bb468620cde914913f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody: {fileID: 571977795}
-  boxCollider: {fileID: 571977796}
-  speed: 5
-  bulletPrefab: {fileID: 3830360675380952988, guid: 32694b21bcf88d4448fd38fe0229466d, type: 3}
-  bulletSpeed: 10
-  FirePoint: {fileID: 349204245}
 --- !u!1 &1755689705
 GameObject:
   m_ObjectHideFlags: 0
