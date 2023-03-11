@@ -19,7 +19,6 @@ public class PlayerObject : MonoBehaviour
 
     [SerializeField] Transform FirePoint;
 
-
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
